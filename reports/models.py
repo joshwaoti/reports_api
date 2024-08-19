@@ -65,3 +65,13 @@ class MobilePspCustomerInfo(models.Model):
     balances_in_customer_accts = models.DecimalField(max_digits=12, decimal_places=2)
     volume_of_transactions = models.PositiveIntegerField()
     value_of_transactions = models.DecimalField(max_digits=12, decimal_places=2)
+    
+class MobilePspTransactionCategorization(models.Model):
+    row_id= models.AutoField(primary_key=True)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
+    reporting_date = models.DateField()
+    sub_transaction_code = models.CharField(max_length=10, choices=SUB_TRANSACTION_CHOICES)
+    band_code = models.CharField(max_length=25, choices=BAND_CHOICES)
+    volume_of_transactions = models.PositiveIntegerField()
+    value_of_transactions = models.DecimalField(max_digits=12, decimal_places=2)
+
