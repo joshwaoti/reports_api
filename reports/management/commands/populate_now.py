@@ -3,6 +3,10 @@ from faker import Faker
 from reports.models import *
 from reports.choice_fields import *
 import random
+from datetime import datetime
+
+
+today = datetime.now().strftime('%Y-%m-%d')
 
 class Command(BaseCommand):
     help = 'Populate MobilePspCustomerInfo with fake data'
@@ -11,7 +15,7 @@ class Command(BaseCommand):
         faker = Faker()
         for _ in range(100):  # Adjust the range for the number of records you want to create
             MobilePspCustomerInfo.objects.create(
-                reporting_date=faker.date(pattern='%d-%b-%Y', end_datetime=None),
+                reporting_date= today,
                 sub_county_code=random.choice([choice[0] for choice in SUB_COUNTY_CHOICES]),
                 gender=random.choice([choice[0] for choice in GENDER_CHOICES]),
                 age_code=random.choice([choice[0] for choice in AGE_CHOICES]),
@@ -29,7 +33,7 @@ class Command(BaseCommand):
         for _ in range(100):  # Adjust the range for the number of records you want to create
             MobilePspTransactionCategorization.objects.create(
                 psp_id=random.choice([choice[0] for choice in PSP_ID_OTHER_CHOICES]),
-                reporting_date=faker.date(pattern='%Y-%m-%d', end_datetime=None),
+                reporting_date=today,
                 sub_transaction_code=random.choice([choice[0] for choice in SUB_TRANSACTION_CHOICES]),
                 band_code=random.choice([choice[0] for choice in BAND_CHOICES]),
                 volume_of_transactions=faker.random_int(min=1, max=10000),
