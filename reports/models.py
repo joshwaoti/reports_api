@@ -50,7 +50,7 @@ from .choice_fields import (
 
 
 # Create your models here.
-class Psp_Customer(models.Model):
+class psp_customer_info(models.Model):
     row_id = models.AutoField(primary_key=True, unique=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=15)
@@ -66,7 +66,7 @@ class Psp_Customer(models.Model):
     volume_of_transactions = models.PositiveIntegerField()
     value_of_transactions = models.DecimalField(max_digits=12, decimal_places=2)
     
-class Psp_Transac_Categorization(models.Model):
+class psp_transac_categorization_info(models.Model):
     row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=15)
@@ -75,7 +75,7 @@ class Psp_Transac_Categorization(models.Model):
     volume_of_transactions = models.PositiveIntegerField()
     value_of_transactions = models.DecimalField(max_digits=12, decimal_places=2)
 
-class MobilePspInteroperability(models.Model):
+class interoperability_data(models.Model):
     row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=15)
@@ -87,7 +87,7 @@ class MobilePspInteroperability(models.Model):
     outgoing_transaction_volume = models.PositiveIntegerField()
     outgoing_transaction_value = models.DecimalField(max_digits=12, decimal_places=2)
 
-class PspTrustAccountPlacement(models.Model):
+class trust_account_info(models.Model):
     row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=15)
@@ -96,7 +96,7 @@ class PspTrustAccountPlacement(models.Model):
     cat_trust_fund_invested_amt = models.DecimalField(max_digits=12, decimal_places=2)
     interest_amt_per_category = models.DecimalField(max_digits=12, decimal_places=2)
 
-class MobilePspAgentsInformation(models.Model):
+class psp_agents_info(models.Model):
     row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=15)
