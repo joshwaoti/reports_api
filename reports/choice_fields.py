@@ -1,21 +1,21 @@
 # ages
 AGE_CHOICES = [
-    ('0-4', '0-4'),
-    ('5-9', '5-9'),
-    ( '10-14', '10-14'),
-    ( '15-19', '15-19'),
-    ( '20-24', '20-24'),
-    ( '25-29', '25-29'),
-    ( '30-34', '30-34'),
-    ( '35-39', '35-39'),
-    ( '40-44', '40-44'),
-    ( '45-49', '45-49'),
-    ( '50-54', '50-54'),
-    ( '55-59', '55-59'),
-    ( '60-64', '60-64'),
-    ( '65-69', '65-69'),
-    ( '70-74', '70-74'),
-    ( '75-79', '75-79'),
+    ('4', '0-4'),
+    ('9', '5-9'),
+    ( '14', '10-14'),
+    ( '19', '15-19'),
+    ( '24', '20-24'),
+    ( '29', '25-29'),
+    ( '34', '30-34'),
+    ( '39', '35-39'),
+    ( '44', '40-44'),
+    ( '49', '45-49'),
+    ( '54', '50-54'),
+    ( '59', '55-59'),
+    ( '64', '60-64'),
+    ( '69', '65-69'),
+    ( '74', '70-74'),
+    ( '79', '75-79'),
     ('80', '80+'),
 ]
 
@@ -1215,7 +1215,8 @@ CLASS_CARD_TYPE_CHOICES = [
 ]
 
 SUBMISSION_FREQUENCY_CHOICES = [
-    ('once_daily', '12:19'),
+    ('once_daily', '12:37'),
+    ('once_daily', '12:38'),
     ('once_monthly', '00:00 on the 1st day of the month'),
     ('annually', '00:00 on January 1st'),
 ]
@@ -1248,7 +1249,7 @@ COMPUTATIONAL_TIME_CHOICES = [
 ]
 
 COMPUTATION_FREQUENCY_CHOICES = [
-    ('once_daily', '12:19'),
+    ('once_daily', '12:40'),
     ('once_monthly', '14:00 on the 1st day of the month')
 ]
 
@@ -1509,3 +1510,34 @@ BUSINESS_SIZE_CODE_CHOICES = [
     ('BSC06', 'Non profit organizations - NGOs/Churches/Charity/Welfare organisations'),
 ]
 
+# not sure if the below has choices
+
+TYPE_OF_DIRECTOR_CHOICES = [
+    ('TD01', 'Individual'),
+    ('TD02', 'Company'),
+    ('TD03', 'Trust'),
+    ('TD04', 'Partnership'),
+    ('TD05', 'Other'),
+]
+DESIGNATION_CHOICES = [
+    ('D01', 'Chairman'),
+    ('D02', 'Director'),
+    ('D03', 'Secretary'),
+    ('D04', 'Treasurer'),
+    ('D05', 'Other'),
+]
+SHAREHOLDER_TYPE_CHOICES = [
+    ('ST01', 'Individual'),
+    ('ST02', 'Company'),
+    ('ST03', 'Trust'),
+    ('ST04', 'Partnership'),
+    ('ST05', 'Other'),
+]
+COMPLAINT_FREQUENCY_CHOICES = [
+    ('CF01', 'Daily'),
+    ('CF02', 'Weekly'),
+    ('CF03', 'Monthly'),
+    ('CF04', 'Quarterly'),
+    ('CF05', 'Yearly'),
+    ('CF06', 'Never'),
+]
