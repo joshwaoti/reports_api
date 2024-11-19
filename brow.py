@@ -13,6 +13,7 @@ print(yesterday.split('-')[-1])
 
 yesterday_date = datetime.strptime(yesterday, "%Y-%m-%d").strftime("%d-%b-%Y")
 print(yesterday_date)
+print(yesterday)
 
 
 
@@ -20,6 +21,7 @@ import json
 import requests
 from requests.auth import HTTPBasicAuth
 from requests_toolbelt import MultipartEncoder
+import time
 
 # Your API credentials
 client_id = 'c26130bf85354b859d66152b3608c501'
@@ -51,13 +53,13 @@ api_url = 'https://gdi.centralbank.go.ke/test/api/v1/flows/rest/API_PSPCUSTOMERI
 payload = {
     "INSTITUTION_CODE": "0800009",
     "REQUEST_ID": "",
-    "REPORTING_DATE": "2024-10-15",
+    "REPORTING_DATE": yesterday,
     "IS_ATTACHED": "N",
     "PSP_CUSTOMER_INFO": [
     {
       "ROW ID": "13101",
       "PSP ID": "0800033",
-      "REPORTING DATE": "16-Oct-2024",
+      "REPORTING DATE": yesterday_date,
       "SUB COUNTY CODE": "1402",
       "GENDER": "O",
       "AGE CODE": "19",
@@ -101,63 +103,131 @@ def get_access_token():
         return None
 
 def post_data(access_token):
-    multipart_data = MultipartEncoder(
-            fields={
-                'json': ('payload', json.dumps(payload), 'application/json')
-            }
-        )
     try:
-        # Make the POST request (or PUT/PATCH if you already changed it)
+        # Print the payload before sending for verification
+        print("\nSending Payload:", json.dumps(payload, indent=2))
+        
+        # Try different multipart field names and formats
+        multipart_data = MultipartEncoder(
+            fields={
+                # Try these different variations:
+                # 'request': ('request.json', json.dumps(payload), 'application/json'),
+                # 'data': ('payload.json', json.dumps(payload), 'application/json'),
+                'json': ('payload.json', json.dumps(payload), 'application/json'),
+                # 'file': ('payload.json', json.dumps(payload), 'application/json'),
+            },
+            boundary='----WebKitFormBoundary7MA4YWxkTrZu0gW'
+        )
+
+        # Add more specific headers
+        headers = {
+            'Content-Type': multipart_data.content_type,
+            'MIME-Version': '1.0',
+            'Authorization': f'Bearer {access_token}',
+            'Accept': 'application/json',
+            'Accept-Encoding': 'gzip,deflate',
+            'User-Agent': 'Apache-HttpClient/4.5.5 (Java/16.0.2)'
+        }
+
         response = requests.post(  
             api_url,
-            headers={
-                'Content-Type': multipart_data.content_type,
-                'MIME-Version': '1.0',
-                'Authorization': f'Bearer {access_token}',
-                'Accept-Encoding': 'gzip,deflate',
-                'User-Agent': 'Apache-HttpClient/4.5.5 (Java/16.0.2)'
-            },
+            headers=headers,
             data=multipart_data
         )
-        print("Response Headers:", response.headers)
-        # Print status code to see if there's a server error
-        print(f"Status Code: {response.status_code}")
 
-        # Print raw response text to see what the server is sending back
-        print(f"Response Text: {response.text}")
-        
+        print("\nInitial Response:")
+        print("Status Code:", response.status_code)
+        print("Response Headers:", response.headers)
+        print("Response Text:", response.text)
+
         if response.status_code == 200:
             try:
                 response_json = response.json()
-                print("Response JSON:", response_json)
-                # Check for success messages in the response
-                if "success" in response_json:
-                    print("Success Message:", response_json["success"])
-                elif "data" in response_json:
-                    print("Data:", response_json["data"])
-            except json.JSONDecodeError:
-                print("Failed to decode JSON from response.")
+                print("\nResponse JSON:", json.dumps(response_json, indent=2))
+                
+                event_id = response_json.get('_event_transid')
+                if event_id:
+                    print(f"\nGot event ID: {event_id}")
+                    
+                    # Increase wait time significantly
+                    wait_time = 30  # increased to 30 seconds
+                    print(f"Waiting {wait_time} seconds for processing...")
+                    time.sleep(wait_time)
+                    
+                    callback_url = 'https://gdi.centralbank.go.ke/test/api/v1/flows/rest/COMMON_GET_REQUESTS_STATUS/1.0/getRequestsStatus'
+                    callback_payload = {
+                        "INSTITUTION_CODE": payload["INSTITUTION_CODE"],
+                        "REPORTING_DATE": payload["REPORTING_DATE"],
+                        # "REQUEST_ID": str(event_id)  # Add the event_id as REQUEST_ID
+                    }
+                    
+                    print("\nSending callback request...")
+                    print("Callback URL:", callback_url)
+                    print("Callback payload:", json.dumps(callback_payload, indent=2))
+                    
+                    callback_headers = {
+                        'Authorization': f'Bearer {access_token}',
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                    
+                    # Try multiple callback attempts
+                    max_attempts = 3
+                    for attempt in range(max_attempts):
+                        print(f"\nCallback attempt {attempt + 1} of {max_attempts}")
+                        
+                        callback_response = requests.post(
+                            callback_url,
+                            json=callback_payload,
+                            headers=callback_headers
+                        )
+                        
+                        print(f"Callback Response Status: {callback_response.status_code}")
+                        print(f"Callback Content: {callback_response.text}")
+                        
+                        try:
+                            callback_json = callback_response.json()
+                            print("Parsed Callback Response:", json.dumps(callback_json, indent=2))
+                            
+                            if callback_json.get("COUNT", 0) > 0:
+                                print("Successfully found records!")
+                                break
+                            else:
+                                print("No records found yet...")
+                                if attempt < max_attempts - 1:
+                                    wait_time = 15  # Wait between attempts
+                                    print(f"Waiting {wait_time} seconds before next attempt...")
+                                    time.sleep(wait_time)
+                        except json.JSONDecodeError:
+                            print("Could not parse callback response as JSON")
+                
+                else:
+                    print("No event_id found in response")
+                    print("Full response content:", response.text)
+            
+            except json.JSONDecodeError as e:
+                print(f"\nError decoding JSON response: {str(e)}")
+                print("Raw response:", response.text)
         else:
-            print(f"Failed request: {response.status_code}")
+            print(f"\nFailed request: {response.status_code}")
+            print("Response content:", response.text)
+        
+        return response
 
-        # Only try to parse as JSON if the content type is JSON
-        if 'application/json' in response.headers.get('Content-Type', ''):
-            try:
-                # Try parsing the response JSON if the content type is JSON
-                response_json = response.json()
-                print("Response JSON:", response_json)
-            except ValueError as e:
-                print(f"Failed to parse JSON: {str(e)}")
-        else:
-            print("Response is not JSON format.")
-    
     except Exception as e:
-        print(f"Error during data posting: {str(e)}")
+        print(f"\nError during data posting: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return None
 
 if __name__ == "__main__":
     # Step 1: Get the access token
     token = get_access_token()
-
-    # Step 2: Post data if the token was successfully retrieved
     if token:
-        post_data(token)
+        print("\nAccess token obtained successfully")
+        # Step 2: Post data
+        response = post_data(token)
+        if response:
+            print("\nData posting completed")
+        else:
+            print("\nData posting failed")

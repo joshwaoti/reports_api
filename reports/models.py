@@ -4,7 +4,7 @@ from .choice_fields import *
 
 # Create your models here.
 class psp_customer_info(models.Model):
-    row_id = models.AutoField(primary_key=True, unique=True)
+    row_id = models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=15)
     sub_county_code = models.CharField(max_length=4, choices=SUB_COUNTY_CHOICES)
@@ -417,27 +417,27 @@ class sched_of_trustees(models.Model): #psp schedule of trustees
     shareholders = models.CharField(max_length=100)
     shareholding_percentage = models.DecimalField(max_digits=12, decimal_places=2)
 
-class psp_customer_compaints(models.Model):
-    row_id = models.AutoField(primary_key=True)
-    reporting_date = models.CharField(max_length=20)
-    psp_id = models.CharField(max_length=10)
-    complaint_id = models.CharField(max_length=10)
-    complaint_code = models.CharField(max_length=10)
-    complainant_gender = models.CharField(max_length=10,choices=GENDER_CHOICES)
-    complaint_frequency = models.CharField(max_length=10,choices=COMPLAINT_FREQUENCY_CHOICES)
-    complainant_name = models.CharField(max_length=100)
-    complainant_age = models.CharField(max_length=10)
-    complainant_contact_number = models.CharField(max_length=10)
-    complainant_sub_county_location = models.CharField(max_length=100)
-    complainant_education_level = models.CharField(max_length=100)
-    other_complainant_details = models.CharField(max_length=100)
-    agent_id = models.CharField(max_length=10)
-    date_of_occurence = models.DateField()
-    date_reported_to_the_institution = models.DateField()
-    date_resolved = models.DateField()
-    remedial_status = models.CharField(max_length=10,choices=REMEDIAL_STATUS_CHOICES)
-    amount_lost = models.DecimalField(max_digits=12, decimal_places=2)
-    amount_recovered = models.DecimalField(max_digits=12, decimal_places=2)
+# class psp_customer_compaints(models.Model):
+#     row_id = models.AutoField(primary_key=True)
+#     reporting_date = models.CharField(max_length=20)
+#     psp_id = models.CharField(max_length=10)
+#     complaint_id = models.CharField(max_length=10)
+#     complaint_code = models.CharField(max_length=10)
+#     complainant_gender = models.CharField(max_length=10,choices=GENDER_CHOICES)
+#     complaint_frequency = models.CharField(max_length=10,choices=COMPLAINT_FREQUENCY_CHOICES)
+#     complainant_name = models.CharField(max_length=100)
+#     complainant_age = models.CharField(max_length=10)
+#     complainant_contact_number = models.CharField(max_length=10)
+#     complainant_sub_county_location = models.CharField(max_length=100)
+#     complainant_education_level = models.CharField(max_length=100)
+#     other_complainant_details = models.CharField(max_length=100)
+#     agent_id = models.CharField(max_length=10)
+#     date_of_occurence = models.DateField()
+#     date_reported_to_the_institution = models.DateField()
+#     date_resolved = models.DateField()
+#     remedial_status = models.CharField(max_length=10,choices=REMEDIAL_STATUS_CHOICES)
+#     amount_lost = models.DecimalField(max_digits=12, decimal_places=2)
+#     amount_recovered = models.DecimalField(max_digits=12, decimal_places=2)
     
     
     
@@ -447,8 +447,9 @@ class psp_customer_compaints(models.Model):
     # GATEWAY MODELS
     
     
-class FailedRejectedTrxInfo(models.Model):
+class failed_rejected_trx_info(models.Model):
     # Payment Gateway Failed and Rejected Transactions
+    row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     bank_id = models.CharField(max_length=14,blank=False,null=False,choices=BANK_ID_CHOICES)
     reporting_date = models.DateField()
@@ -460,17 +461,19 @@ class FailedRejectedTrxInfo(models.Model):
     number_of_transactions = models.PositiveBigIntegerField()
     value_of_transactions = models.DecimalField(max_digits=12, decimal_places=2,blank=False,null=False)
 
-class PaymentGatewayTransactionsTarrifs(models.Model):
-    reporting_date = models.DateField()
+class payment_gateway_tariffs(models.Model):
+    row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
+    reporting_date = models.DateField()
     channel_used = models.CharField(max_length=10,blank=False,null=False)
     channel_partner_name = models.CharField(max_length=10,blank=False,null=False)
     charge_description = models.CharField(max_length=10,blank=False,null=False)
     percentage_transaction_cost = models.DecimalField(max_digits=12, decimal_places=2,blank=False,null=False)
     absolute_transaction_cost = models.DecimalField(max_digits=12, decimal_places=2,blank=False,null=False)
 
-class PaymentGatewayTransactionsDetails(models.Model):
+class payment_gateway_transactions_details(models.Model):
     reporting_date = models.DateField()
+    row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     card_brand_type = models.CharField(max_length=10,blank=False,null=False,choices=CARD_BRAND_TYPE_CHOICES)
     card_type = models.CharField(max_length=10,blank=False,null=False,choices=CARD_TYPE_CHOICES)
@@ -482,20 +485,11 @@ class PaymentGatewayTransactionsDetails(models.Model):
     total_number_of_transactions_done = models.PositiveBigIntegerField()
     total_value_of_transactions_done = models.DecimalField(max_digits=12, decimal_places=2,blank=False,null=False)
 
-class PaymentGatewayBillingTemplate(models.Model):
+class pay_gtway_bill_temp(models.Model):
+    row_id= models.AutoField(primary_key=True)
     reporting_date = models.DateField()
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     bill_classification_code = models.CharField(max_length=10,blank=False,null=False,choices=BILL_CLASSIFICATION_CODE)
     number_of_transactions = models.PositiveBigIntegerField()
     value_of_transactions = models.DecimalField(max_digits=12, decimal_places=2,blank=False,null=False)
-
-class paymentGatewayCardBrands(models.Model):
-    reporting_date=models.DateField()
-    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
-    bank_id = models.CharField(max_length=15,choices=BANK_ID_CHOICES)
-    card_flag = models.CharField(max_length=10,choices=CARD_FLAG_CHOICES)
-    card_brand_type=models.CharField(max_length=10,choices=CARD_BRAND_TYPE_CHOICES)
-    number_of_transactions = models.PositiveBigIntegerField()
-    value_of_transactions = models.DecimalField(max_digits=12, decimal_places=2,blank=False,null=False)
-
 

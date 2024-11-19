@@ -78,23 +78,23 @@ class PspCyberSecurityIncidentRecordViewSet(viewsets.ModelViewSet):
     serializer_class = PspCyberSecurityIncidentRecordSerializer
 
 class FailedRejectedTrxInfoViewSet(viewsets.ModelViewSet):
-    queryset = FailedRejectedTrxInfo.objects.all()
+    queryset = failed_rejected_trx_info.objects.all()
     serializer_class = FailedRejectedTrxInfoSerializer
 
 class PaymentGatewayTransactionsTarrifsViewSet(viewsets.ModelViewSet):
-    queryset = PaymentGatewayTransactionsTarrifs.objects.all()
+    queryset = payment_gateway_tariffs.objects.all()
     serializer_class = PaymentGatewayTransactionsTarrifsSerializer
 
 class PaymentGatewayTransactionsDetailsViewSet(viewsets.ModelViewSet):
-    queryset = PaymentGatewayTransactionsDetails.objects.all()
+    queryset = payment_gateway_transactions_details.objects.all()
     serializer_class = PaymentGatewayTransactionsDetailsSerializer
 
 class PaymentGatewayBillingTemplateViewSet(viewsets.ModelViewSet):
-    queryset = PaymentGatewayBillingTemplate.objects.all()
+    queryset = pay_gtway_bill_temp.objects.all()
     serializer_class = PaymentGatewayBillingTemplateSerializer
 
 class PaymentGatewayCardBrandsViewSet(viewsets.ModelViewSet):
-    queryset = paymentGatewayCardBrands.objects.all()
+    queryset = pymt_gw_card_brands.objects.all()
     serializer_class = paymentGatewayCardBrandsSerializer
 
 class PspScheduleOfDirectorsViewSet(viewsets.ModelViewSet):

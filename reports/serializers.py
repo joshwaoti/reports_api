@@ -116,27 +116,27 @@ class PspCyberSecurityIncidentRecordSerializer(serializers.ModelSerializer):
 
 class FailedRejectedTrxInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FailedRejectedTrxInfo
+        model = failed_rejected_trx_info
         fields = '__all__'
 
 class PaymentGatewayTransactionsTarrifsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PaymentGatewayTransactionsTarrifs
+        model = payment_gateway_tariffs
         fields = '__all__'
 
 class PaymentGatewayTransactionsDetailsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PaymentGatewayTransactionsDetails
+        model = payment_gateway_transactions_details
         fields = '__all__'
 
 class PaymentGatewayBillingTemplateSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PaymentGatewayBillingTemplate
+        model = pay_gtway_bill_temp
         fields = '__all__'
 
 class paymentGatewayCardBrandsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = paymentGatewayCardBrands
+        model = pymt_gw_card_brands
         fields = '__all__'
 
 class MerchantTransactionInfoSerializer(serializers.ModelSerializer):
