@@ -164,8 +164,3 @@ class pspScheduleOfTrusteesSerializer(serializers.ModelSerializer):
         model = sched_of_trustees
         fields = '__all__'
 
-
-class pspCustomerComplaintsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = psp_customer_complaints
-        fields = '__all__'

@@ -7,7 +7,7 @@ class psp_customer_info(models.Model):
     row_id = models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=15)
-    sub_county_code = models.CharField(max_length=4, choices=SUB_COUNTY_CHOICES)
+    sub_country_code = models.CharField(max_length=4, choices=SUB_COUNTY_CHOICES)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     age_code = models.CharField(max_length=10,choices=AGE_CHOICES)
     wallet_code = models.CharField(max_length=3, choices=WALLET_CHOICES)
@@ -70,6 +70,7 @@ class psp_agents_info(models.Model):
     value_of_agent_cash_withd_banks = models.DecimalField(max_digits=12, decimal_places=2)
 
 class psp_tariffs_info(models.Model):
+    row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=20)
     band_code = models.CharField(max_length=10,choices=BAND_CHOICES)
@@ -104,6 +105,7 @@ class psp_tariffs_info(models.Model):
     P2P_outgoing_reg_partner_net = models.PositiveIntegerField()
 
 class merchant_cust_balance_info(models.Model):
+    row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=20)
     merchant_id = models.CharField(max_length=10)
@@ -116,7 +118,8 @@ class merchant_cust_balance_info(models.Model):
     no_of_customers = models.PositiveIntegerField()
     eod_balances = models.DecimalField(max_digits=12, decimal_places=2)
 
-class merchant_transaction_info(models.Model):      #in SOAP UI this is listed under gateways
+class merchant_transaction_info(models.Model):
+    row_id= models.AutoField(primary_key=True)#in SOAP UI this is listed under gateways
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=20)
     merchant_id = models.CharField(max_length=10)
@@ -232,7 +235,8 @@ class p2p_switch_info(models.Model):
 
 # currently not in GDI phase 2
 class psp_products_info(models.Model):
-    row_id= models.AutoField(primary_key=True)  # not in GDI User Guide phase 2
+    row_id= models.AutoField(primary_key=True)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=20)
     product_ownership_flag = models.CharField(max_length=10, choices=PRODUCT_CATEGORY_CHOICES)
     product_ownership_category = models.CharField(max_length=25, choices=PRODUCT_OWNERSHIP_CATEGORY_CHOICES)
@@ -247,9 +251,10 @@ class psp_products_info(models.Model):
     value_of_transactions = models.DecimalField(max_digits=12, decimal_places=2)
 
 class trustaccount_data(models.Model):
-    row_id= models.AutoField(primary_key=True)# not in GDI User Guide phase 2
-    reporting_date = models.CharField(max_length=20)
+    row_id= models.AutoField(primary_key=True)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     bank_id = models.CharField(max_length=15,choices=BANK_ID_CHOICES)
+    reporting_date = models.CharField(max_length=20)
     bank_account_number = models.IntegerField()
     trust_account_debit_types_code = models.CharField(max_length=100, choices=DEBIT_TYPE_CODE_CHOICES)
     org_recieving_donations = models.CharField(max_length=100)
@@ -264,6 +269,7 @@ class trustaccount_data(models.Model):
 class incidents_data(models.Model): # not in GDI User Guide phase 2
     # PSP Incidents of fraud theft robbery
     row_id= models.AutoField(primary_key=True)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=20)
     sub_county_code = models.CharField(max_length=4)
     sub_fraud_code = models.CharField(max_length=10)
@@ -282,6 +288,7 @@ class system_activity_info(models.Model): # not in GDI User Guide phase 2
     # PSP System Activity
     row_id= models.AutoField(primary_key=True)
     reporting_date = models.CharField(max_length=20)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     hour_of_day = models.CharField(max_length=6, choices=TIME_CHOICES)
     no_of_transactions_per_sec = models.PositiveIntegerField()
     no_of_transactions_per_hr = models.PositiveIntegerField()
@@ -290,6 +297,7 @@ class system_activity_info(models.Model): # not in GDI User Guide phase 2
 class psp_customer_complaints(models.Model):
     row_id= models.AutoField(primary_key=True) # psp schedule customer complaints & remedial actions
     reporting_date = models.CharField(max_length=20)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     complaint_code = models.CharField(max_length=10,choices=COMPLAINTS_CODE_CHOICES)
     complainant_gender = models.CharField(max_length=10,choices=GENDER_CHOICES)
     complaint_frequency = models.CharField(max_length=10,choices=COMPLAINTS_FREQUENCY_CODE_CHOICES)
@@ -328,6 +336,7 @@ class sch_sy_stabil_srvce_int(models.Model):
 class psp_cybersecurity_incident_record(models.Model):
     row_id= models.AutoField(primary_key=True)  # not in GDI User Guide phase 2
     reporting_date = models.CharField(max_length=20)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     incident_number = models.CharField(max_length=10)
     location_of_attacker = models.CharField(max_length=10,choices=COUNTRY_CODE_CHOICES)
     incident_mode = models.CharField(max_length=10,choices=INCIDENT_MODE_CHOICES)
@@ -343,7 +352,7 @@ class psp_cybersecurity_incident_record(models.Model):
 class sched_of_dir(models.Model):  # Psp schedule of directors
     row_id = models.AutoField(primary_key=True) 
     reporting_date = models.CharField(max_length=20)
-    psp_id = models.CharField(max_length=10)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     director_names = models.CharField(max_length=100)
     director_gender = models.CharField(max_length=10,choices=GENDER_CHOICES)
     type_of_director = models.CharField(max_length=10,choices=TYPE_OF_DIRECTOR_CHOICES)
@@ -363,7 +372,7 @@ class sched_of_dir(models.Model):  # Psp schedule of directors
 class senior_mngt_schedule(models.Model): #psp schedule of senior management
     row_id = models.AutoField(primary_key=True)
     reporting_date = models.CharField(max_length=20)
-    psp_id = models.CharField(max_length=10)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     officer_names = models.CharField(max_length=100)
     gender = models.CharField(max_length=10,choices=GENDER_CHOICES)
     designation = models.CharField(max_length=10,choices=DESIGNATION_CHOICES)
@@ -380,7 +389,7 @@ class senior_mngt_schedule(models.Model): #psp schedule of senior management
 class sched_of_share_hldrs(models.Model): #psp schedule of share holders
     row_id = models.AutoField(primary_key=True)
     reporting_date = models.CharField(max_length=20)
-    psp_id = models.CharField(max_length=10)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     shareholder_name= models.CharField(max_length=100)
     shareholder_gender = models.CharField(max_length=10,choices=GENDER_CHOICES)
     shareholder_type = models.CharField(max_length=10,choices=SHAREHOLDER_TYPE_CHOICES)
@@ -400,7 +409,7 @@ class sched_of_share_hldrs(models.Model): #psp schedule of share holders
 class sched_of_trustees(models.Model): #psp schedule of trustees
     row_id = models.AutoField(primary_key=True)
     reporting_date = models.CharField(max_length=20)
-    psp_id = models.CharField(max_length=10)
+    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     trust_comp_name = models.CharField(max_length=100)
     directors_trust_comp = models.CharField(max_length=100)
     trustee_names = models.CharField(max_length=100)

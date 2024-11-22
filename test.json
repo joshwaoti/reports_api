@@ -1,220 +1,24 @@
 {
-  "COUNT" : 24,
-  "RESULTS" : [ {
-    "Dataset Name" : "Mobile PSP Interoperability",
-    "Dataset ID" : 36,
-    "Request ID" : 90194106,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:47:11.461+03:00",
-    "Status Code" : "REJECT",
-    "Status Description" : "REJECTED, ALREADY SUBMITTED BY REQUEST_ID 90594092",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "PSP Trust Account Placement",
-    "Dataset ID" : 53,
-    "Request ID" : 90594260,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:47:36.836+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP Agents Info",
-    "Dataset ID" : 54,
-    "Request ID" : 90194115,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:47:55.605+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP Tariffs Info",
-    "Dataset ID" : 38,
-    "Request ID" : 90594273,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:48:13.495+03:00",
-    "Status Code" : "SUBMIT",
-    "Status Description" : "SUBMITTED FOR PROCESSING",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "PSP Merchant Cust Balance",
-    "Dataset ID" : 51,
-    "Request ID" : 90594277,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:48:31.282+03:00",
-    "Status Code" : "REJECT",
-    "Status Description" : "REJECTED, ALREADY SUBMITTED BY REQUEST_ID 90594101",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP Failed Transactions",
-    "Dataset ID" : 39,
-    "Request ID" : 90194135,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:48:48.332+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP Counterfeit Currency Fraud",
-    "Dataset ID" : 103,
-    "Request ID" : 90194139,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:49:10.981+03:00",
-    "Status Code" : "REJECT",
-    "Status Description" : "REJECTED, User Reporting Date 2024-11-11 does not represent any end of frequency WEEKLY",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP wallet to wallet",
-    "Dataset ID" : 96,
-    "Request ID" : 90194140,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:49:28.27+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "PAYMENT_GATEWAY_CARD_BRANDS",
-    "Dataset ID" : 94,
-    "Request ID" : 90594297,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:49:44.93+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "PSP Products",
-    "Dataset ID" : 40,
-    "Request ID" : 90594301,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:50:03.714+03:00",
-    "Status Code" : "STAGED",
-    "Status Description" : "STAGED",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "PSP Trust Account",
-    "Dataset ID" : 41,
-    "Request ID" : 90194154,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:50:23.23+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "PSP Incidents of fraud theft robbery",
-    "Dataset ID" : 42,
-    "Request ID" : 90194158,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:50:40.823+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "PSP Cybersecurity incident record",
-    "Dataset ID" : 85,
-    "Request ID" : 90594316,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:51:26.364+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Schedule of Directors",
-    "Dataset ID" : 102,
-    "Request ID" : 90594321,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:51:42.641+03:00",
-    "Status Code" : "REJECT",
-    "Status Description" : "REJECTED, User Reporting Date 2024-11-11 does not represent any end of frequency ANNUAL",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Schedule of Senior Management",
-    "Dataset ID" : 100,
-    "Request ID" : 90194170,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:52:00.619+03:00",
-    "Status Code" : "REJECT",
-    "Status Description" : "REJECTED, User Reporting Date 2024-11-11 does not represent any end of frequency ANNUAL",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Schedule of Shareholders",
-    "Dataset ID" : 98,
-    "Request ID" : 90194172,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:52:16.655+03:00",
-    "Status Code" : "REJECT",
-    "Status Description" : "REJECTED, User Reporting Date 2024-11-11 does not represent any end of frequency ANNUAL",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Schedule of Trustees",
-    "Dataset ID" : 101,
-    "Request ID" : 90194173,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:52:32.913+03:00",
-    "Status Code" : "REJECT",
-    "Status Description" : "REJECTED, User Reporting Date 2024-11-11 does not represent any end of frequency ANNUAL",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP Interoperability",
-    "Dataset ID" : 36,
-    "Request ID" : 90594092,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T14:17:36.987+03:00",
-    "Status Code" : "STAGED",
-    "Status Description" : "STAGED",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP Agents Info",
-    "Dataset ID" : 54,
-    "Request ID" : 90594097,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T14:17:54.373+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "PSP Merchant Cust Balance",
-    "Dataset ID" : 51,
-    "Request ID" : 90594101,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T14:18:11.669+03:00",
-    "Status Code" : "STAGED",
-    "Status Description" : "STAGED",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP Failed Transactions",
-    "Dataset ID" : 39,
-    "Request ID" : 90594106,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T14:18:30.217+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP Counterfeit Currency Fraud",
-    "Dataset ID" : 103,
-    "Request ID" : 90594111,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T14:18:49.276+03:00",
-    "Status Code" : "REJECT",
-    "Status Description" : "REJECTED, User Reporting Date 2024-11-11 does not represent any end of frequency WEEKLY",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "PSP Incidents of fraud theft robbery",
-    "Dataset ID" : 42,
-    "Request ID" : 90594113,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T14:19:07.719+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  }, {
-    "Dataset Name" : "Mobile PSP Customer Info",
-    "Dataset ID" : 33,
-    "Request ID" : 90194101,
-    "Reporting Date" : "2024-11-11",
-    "Submission Date" : "2024-11-12T15:46:51.306+03:00",
-    "Status Code" : "INVALID_DATA",
-    "Status Description" : "INVALID DATA",
-    "Block Status Code" : ""
-  } ]
+  "INSTITUTION_CODE": "0800009",
+  "REQUEST_ID": "",
+  "REPORTING_DATE": "2024-11-20",
+  "IS_ATTACHED": "N",
+  "PSP_CUSTOMER_INFO": [
+    {
+      "ID": "1",
+      "PSP_ID": "0800030",
+      "REPORTING_DATE": "20-Nov-2024",
+      "SUB_COUNTY_CODE": "4105",
+      "GENDER": "C",
+      "AGE_CODE": "34",
+      "WALLET_CODE": "W07",
+      "NO_OF_CUSTOMERS_REGISTERED": "2032",
+      "NO_OF_CUSTOMERS_ACTIVE": "8279",
+      "NO_OF_CUSTOMERS_INACTIVE": "9352",
+      "NO_OF_CUSTOMERS_DORMANT": "8399",
+      "BALANCES_IN_CUSTOMER_ACCTS": "2516397556.44",
+      "VOLUME_OF_TRANSACTIONS": "3849",
+      "VALUE_OF_TRANSACTIONS": "2283287135.72"
+    }
+  ]
 }
