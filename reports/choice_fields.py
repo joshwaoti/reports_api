@@ -1544,74 +1544,74 @@ COMPLAINT_FREQUENCY_CHOICES = [
 
 
 TRUST_ACCOUNT_DETAILS_CHOICES = [
-    ('TFP01', 'Cash holdings (Fixed Deposit)')
-    ('TFP02', 'Cash holdings (Current)')
-    ('TFP03', 'Cash holdings (Fixed Deposit) in foreign currency account')
-    ('TFP04', 'Cash holdings (Current) in foreign currency account')
-    ('TFP05', 'Treasury bills')
-    ('TFP06', 'Treasury bonds')
-    ('TFP99', 'Any other')
+    ('TFP01', 'Cash holdings (Fixed Deposit)'),
+    ('TFP02', 'Cash holdings (Current)'),
+    ('TFP03', 'Cash holdings (Fixed Deposit) in foreign currency account'),
+    ('TFP04', 'Cash holdings (Current) in foreign currency account'),
+    ('TFP05', 'Treasury bills'),
+    ('TFP06', 'Treasury bonds'),
+    ('TFP99', 'Any other'),
 
 ]
 
 TRUST_ACCOUNT_UTILIZED_DETAILS_CHOICES = [
-    ('DBT01',	'Banks charges')
-    ('DBT02',	'Management fees')
-    ('DBT03',	'Stamp duty')
-    ('DBT04',	'Donations')
-    ('DBT05',	'Custody fees')
-    ('DBT06',	'Audit fees')
-    ('DBT07',	'Withholding taxes')
-    ('DBT08',	'Field not applicable')
-    ('DBT99',	'Any others debit type')
+    ('DBT01',	'Banks charges'),
+    ('DBT02',	'Management fees'),
+    ('DBT03',	'Stamp duty'),
+    ('DBT04',	'Donations'),
+    ('DBT05',	'Custody fees'),
+    ('DBT06',	'Audit fees'),
+    ('DBT07',	'Withholding taxes'),
+    ('DBT08',	'Field not applicable'),
+    ('DBT99',	'Any others debit type'),
 
 ]
 
 FRAUD_CATEGORY_FLAG_CHOICES = [
-    ('FCT01', 'Actual')
-    ('FCT02', 'Attempted')
+    ('FCT01', 'Actual'),
+    ('FCT02', 'Attempted'),
 ]
 
 SUB_FRAUD_FRAUD_CHOICES = [
-    ('IC01',	'Wallet to wallet registered to registered')
-    ('IC02',	'Wallet to wallet registered to unregistered')
-    ('IC03',	'wallet to wallet unregistered to registered') 
-    ('IC04',	'Cross-network wallet to mobile number ( Interop)')
-    ('IC05',	'Local mobile wallet to international mobile money wallet')
-    ('IC06',	'Bulk payment from business mobile money wallet to personal mobile money wallet')
-    ('IC07',	'Bank account to mobile money wallet')
-    ('IC08',	'Mobile money wallet to bank account')
-    ('IC09',	'Agent cash and float')
-    ('IC10',	'Deposit at branch or super agent')
-    ('IC11',	'Withdrawal at branch or super agent')
-    ('IC12',	'Float transfer to other agent')
-    ('IC13',	'Mobile money wallet to merchant or business paybill')
-    ('IC14',	'Mobile money wallet to till')
-    ('IC99',	'Any other instrument type')
-    ('SG01',	'P2P - Person to Person')
-    ('SG02',	'P2B - Person to Business')
-    ('SG03',	'P2G - Person to Government')
-    ('SG04',	'B2P - Business to Person')
-    ('SG05',	'B2B - Business to Business')
-    ('SG06',	'B2G - Business to Government')
-    ('SG07',	'G2P - Government to Person')
-    ('SG08',	'G2G - Government to Business')
-    ('SG09',	'G2B - Government to Government')
-    ('I', 'Individual')
-    ('B', 'Business')
-    ('G', 'Government/ Public entity')
-    ('SS',	'Sim swap')
-    ('CONSEND',	'Individuals conned into sending money') 
-    ('CONPIN',	'PIN theft')
-    ('CONIDEN',	'Identity theft')
-    ('CONIMPER',	'Impersonification')
-    ('I',	'Individual')
-    ('B',	'Business')
-    ('G',	'Government/ Public entity')
-    ('I',	'Individual')
-    ('B',	'Business')
-    ('G',	'Government/ Public entity')
-    ('ATM',	'ATM')
-    ('AG',	'Agent')
+    ('IC01',	'Wallet to wallet registered to registered'),
+    ('IC02',	'Wallet to wallet registered to unregistered'),
+    ('IC03',	'wallet to wallet unregistered to registered') ,
+    ('IC04',	'Cross-network wallet to mobile number ( Interop)'),
+    ('IC05',	'Local mobile wallet to international mobile money wallet'),
+    ('IC06',	'Bulk payment from business mobile money wallet to personal mobile money wallet'),
+    ('IC07',	'Bank account to mobile money wallet'),
+    ('IC08',	'Mobile money wallet to bank account'),
+    ('IC09',	'Agent cash and float'),
+    ('IC10',	'Deposit at branch or super agent'),
+    ('IC11',	'Withdrawal at branch or super agent'),
+    ('IC12',	'Float transfer to other agent'),
+    ('IC13',	'Mobile money wallet to merchant or business paybill'),
+    ('IC14',	'Mobile money wallet to till'),
+    ('IC99',	'Any other instrument type'),
+    ('SG01',	'P2P - Person to Person'),
+    ('SG02',	'P2B - Person to Business'),
+    ('SG03',	'P2G - Person to Government'),
+    ('SG04',	'B2P - Business to Person'),
+    ('SG05',	'B2B - Business to Business'),
+    ('SG06',	'B2G - Business to Government'),
+    ('SG07',	'G2P - Government to Person'),
+    ('SG08',	'G2G - Government to Business'),
+    ('SG09',	'G2B - Government to Government'),
+    ('I', 'Individual'),
+    ('B', 'Business'),
+    ('G', 'Government/ Public entity'),
+    ('SS',	'Sim swap'),
+    ('CONSEND',	'Individuals conned into sending money') ,
+    ('CONPIN',	'PIN theft'),
+    ('CONIDEN',	'Identity theft'),
+    ('CONIMPER',	'Impersonification'),
+    ('I',	'Individual'),
+    ('B',	'Business'),
+    ('G',	'Government/ Public entity'),
+    ('I',	'Individual'),
+    ('B',	'Business'),
+    ('G',	'Government/ Public entity'),
+    ('ATM',	'ATM'),
+    ('AG',	'Agent'),
 
 ]

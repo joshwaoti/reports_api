@@ -16,7 +16,7 @@ class psp_customer_info(models.Model):
     row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, null=True, default="0800009", choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=20)
-    sub_county_code = models.CharField(max_length=4, choices=SUB_COUNTY_CHOICES)
+    sub_country_code = models.CharField(max_length=4, choices=SUB_COUNTY_CHOICES)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     age_code = models.CharField(max_length=10,choices=AGE_CHOICES)
     wallet_code = models.CharField(max_length=3, choices=WALLET_CHOICES)
@@ -62,13 +62,13 @@ class psp_agents_info(models.Model):
     band_code = models.CharField(max_length=25, choices=BAND_CHOICES)
     volume_cash_in_at_agents = models.PositiveIntegerField()
     value_cash_in_at_agents = models.DecimalField(max_digits=12, decimal_places=2)
-    volume_of_cash_out_at_agents = models.PositiveIntegerField()
-    value_of_cash_out_at_agents = models.DecimalField(max_digits=12, decimal_places=2)
-    amount_of_eFloat_mobile_agents = models.DecimalField(max_digits=12, decimal_places=2)
-    number_of_agent_cash_dep_banks = models.PositiveIntegerField()
-    value_of_agent_cash_dep_banks = models.DecimalField(max_digits=12, decimal_places=2)
-    no_of_agent_cash_withd_banks = models.PositiveIntegerField()
-    value_of_agent_cash_withd_banks = models.DecimalField(max_digits=12, decimal_places=2)
+    volume_cash_out_at_agents = models.PositiveIntegerField()
+    value_cash_out_at_agents = models.DecimalField(max_digits=12, decimal_places=2)
+    amount_e_float_mobile_agents = models.DecimalField(max_digits=12, decimal_places=2)
+    number_agent_cash_dep_banks = models.PositiveIntegerField()
+    value_agent_cash_dep_banks = models.DecimalField(max_digits=12, decimal_places=2)
+    no_agent_cash_withd_banks = models.PositiveIntegerField()
+    value_agent_cash_withd_banks = models.DecimalField(max_digits=12, decimal_places=2)
 
 class psp_tariffs_info(models.Model):
     row_id= models.AutoField(primary_key=True)
@@ -77,7 +77,7 @@ class psp_tariffs_info(models.Model):
     reporting_date = models.CharField(max_length=20)
     p2p_on_net_registered_wallet = models.PositiveIntegerField()
     p2p_on_net_non_reg_wallet = models.PositiveIntegerField()
-    p2p_off_net_registered_wallet = models.PositiveIntegerField()
+    p2p_off_net_reg_wallet = models.PositiveIntegerField()
     p2p_off_net_non_reg_wallet = models.PositiveIntegerField()
     cash_withdrawal_mob_money_agent = models.PositiveIntegerField()
     cash_withdrawals_bank_atms = models.PositiveIntegerField()
@@ -258,7 +258,7 @@ class trustaccount_data(models.Model):
     bank_id = models.CharField(max_length=15,choices=BANK_ID_CHOICES)
     bank_account_number = models.IntegerField()
     trust_acc_dr_type_code = models.CharField(max_length=100, choices=DEBIT_TYPE_CODE_CHOICES)
-    org_receiving_donations = models.CharField(max_length=100)
+    org_receiving_donation = models.CharField(max_length=100)
     sector_code = models.CharField(max_length=100, choices=SECTOR_CODE_CHOICES)
     trust_acc_int_utilized_details = models.CharField(max_length=100, choices=TRUST_ACCOUNT_UTILIZED_DETAILS_CHOICES)
     trust_acc_opening_balance = models.DecimalField(max_digits=12, decimal_places=2)
@@ -318,7 +318,7 @@ class psp_customer_complaints(models.Model):
 
 class sch_sy_stabil_srvce_int(models.Model):
     row_id= models.AutoField(primary_key=True)
-    psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
+    psp_code = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     reporting_date = models.CharField(max_length=20)
     sub_county_code = models.CharField(max_length=4,choices=SUB_COUNTY_CHOICES)
     system_owner_flag = models.CharField(max_length=10,choices=SYSTEM_CATEGORY_OWNER_FLAG_CHOICES)
@@ -331,7 +331,7 @@ class sch_sy_stabil_srvce_int(models.Model):
     severity_interruption_code = models.CharField(max_length=100,choices=DISRUPTION_CODE_CHOICES)
     recovery_time_code = models.CharField(max_length=100,choices=RECOVERY_TIME_CHOICES)
     remedial_status_code = models.CharField(max_length=100,choices=REMEDIAL_STATUS_CHOICES)
-    system_uptime_percentage = models.DecimalField(max_digits=12, decimal_places=2)
+    system_uptime_percentage = models.DecimalField(max_digits=5, decimal_places=2)
 
 
 class psp_cybersecurity_incident_record(models.Model):
@@ -462,7 +462,7 @@ class failed_rejected_trx_info(models.Model):
     row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     bank_id = models.CharField(max_length=14,blank=False,null=False,choices=BANK_ID_CHOICES)
-    reporting_date = models.DateField()
+    reporting_date = models.CharField(max_length=20)
     customer_account_number = models.CharField(max_length=10,blank=False,null=False)
     channel_of_settlement = models.CharField(max_length=100,blank=False,null=False,choices=CHANNEL_SETTLEMENT_CHOICES)
     merchant_id = models.CharField(max_length=10,blank=False,null=False)
@@ -474,7 +474,7 @@ class failed_rejected_trx_info(models.Model):
 class payment_gateway_tariffs(models.Model):
     row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
-    reporting_date = models.DateField()
+    reporting_date = models.CharField(max_length=20)
     channel_used = models.CharField(max_length=10,blank=False,null=False)
     channel_partner_name = models.CharField(max_length=10,blank=False,null=False)
     charge_description = models.CharField(max_length=10,blank=False,null=False)
@@ -482,7 +482,7 @@ class payment_gateway_tariffs(models.Model):
     absolute_transaction_cost = models.DecimalField(max_digits=12, decimal_places=2,blank=False,null=False)
 
 class payment_gateway_transactions_details(models.Model):
-    reporting_date = models.DateField()
+    reporting_date = models.CharField(max_length=20)
     row_id= models.AutoField(primary_key=True)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     card_brand_type = models.CharField(max_length=10,blank=False,null=False,choices=CARD_BRAND_TYPE_CHOICES)
@@ -497,7 +497,7 @@ class payment_gateway_transactions_details(models.Model):
 
 class pay_gtway_bill_temp(models.Model):
     row_id= models.AutoField(primary_key=True)
-    reporting_date = models.DateField()
+    reporting_date = models.CharField(max_length=20)
     psp_id = models.CharField(max_length=25, choices=PSP_ID_OTHER_CHOICES)
     bill_classification_code = models.CharField(max_length=10,blank=False,null=False,choices=BILL_CLASSIFICATION_CODE)
     number_of_transactions = models.PositiveBigIntegerField()
