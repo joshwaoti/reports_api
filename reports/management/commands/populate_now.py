@@ -13,7 +13,7 @@ class Command(BaseCommand):
         faker = Faker()
         for _ in range(100):  # Adjust the range for the number of records you want to create
             psp_customer_info.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 sub_country_code=random.choice([choice[0] for choice in SUB_COUNTY_CHOICES]),
                 gender=random.choice([choice[0] for choice in GENDER_CHOICES]),
@@ -32,7 +32,7 @@ class Command(BaseCommand):
         for _ in range(100):  # Adjust the range for the number of records you want to create
             psp_transac_categorization_info.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 sub_transaction_code=random.choice([choice[0] for choice in SUB_TRANSACTION_CHOICES]),
                 band_code=random.choice([choice[0] for choice in BAND_CHOICES]),
                 volume_of_transactions=faker.random_int(min=1, max=10000),
@@ -45,7 +45,7 @@ class Command(BaseCommand):
         for _ in range(100):
             interoperability_data.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 band_code=random.choice([choice[0] for choice in BAND_CHOICES]),
                 psp_id_other=random.choice([choice[0] for choice in PSP_ID_OTHER_CHOICES]),
                 interoperability_code=random.choice([choice[0] for choice in INTEROP_CHOICES]),
@@ -60,7 +60,7 @@ class Command(BaseCommand):
         for _ in range(100):
             trust_account_info.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 trust_fund_placement=random.choice([choice[0] for choice in TRUST_ACCOUNT_DETAILS_CHOICES]),
                 trust_fund_inv_maturity_date=faker.date(pattern='%Y-%m-%d', end_datetime=None),
                 cat_trust_fund_invested_amt=faker.pydecimal(left_digits=10, right_digits=2, positive=True),
@@ -72,7 +72,7 @@ class Command(BaseCommand):
         for _ in range(100):
             psp_agents_info.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 agent_type_code=random.choice([choice[0] for choice in AGENT_TYPE_CHOICES]),
                 agents_id=faker.lexify(text='??????????'),
                 gps_cordinates=faker.lexify(text='??????????'),
@@ -95,7 +95,7 @@ class Command(BaseCommand):
         for _ in range(100):
             psp_tariffs_info.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 band_code=random.choice([choice[0] for choice in BAND_CHOICES]),
                 p2p_on_net_registered_wallet=faker.random_int(min=1, max=1000),
                 p2p_on_net_non_reg_wallet=faker.random_int(min=1, max=1000),
@@ -134,7 +134,7 @@ class Command(BaseCommand):
         for _ in range(100):
             merchant_cust_balance_info.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 merchant_id=faker.lexify(text='??????????'),
                 merchant_type_code=random.choice([choice[0] for choice in MERCHANT_TYPE_CHOICES]),
                 merchant_name=faker.company(),
@@ -151,7 +151,7 @@ class Command(BaseCommand):
         for _ in range(100):
             failed_txn_data.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 failed_transaction_code=random.choice([choice[0] for choice in FAILED_TRANSACTION_CODE_CHOICES]),
                 band_code=random.choice([choice[0] for choice in BAND_CHOICES]),
                 volume_of_transactions=faker.random_int(min=1, max=10000),
@@ -164,7 +164,7 @@ class Command(BaseCommand):
         for _ in range(100):
             new_mobile_agents.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 sub_county_code=random.choice([choice[0] for choice in SUB_COUNTY_CHOICES]),
                 agent_id=faker.lexify(text='??????????'),
                 store_number=faker.lexify(text='??????????'),
@@ -188,7 +188,7 @@ class Command(BaseCommand):
         for _ in range(100):
             counterfeit_transactions.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 sub_county_code=random.choice([choice[0] for choice in SUB_COUNTY_CHOICES]),
                 agent_id=faker.lexify(text='??????????'),
                 denomination_code=random.choice([choice[0] for choice in DENOMINATION_CODE_CHOICES]),
@@ -205,7 +205,7 @@ class Command(BaseCommand):
         for _ in range(100):
             wallet_to_wallet.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 segmentation_code=random.choice([choice[0] for choice in SEGMENTATION_CODE_CHOICES]),
                 business_size_code=random.choice([choice[0] for choice in BUSINESS_SIZE_CODE_CHOICES]),
                 volume_of_transactions=faker.random_int(min=1, max=10000),
@@ -216,7 +216,7 @@ class Command(BaseCommand):
         # Populate pymt_gw_card_brands
         for _ in range(100):
             pymt_gw_card_brands.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 bank_id=random.choice([choice[0] for choice in BANK_ID_CHOICES]),
                 transaction_category=random.choice([choice[0] for choice in TRANSACTION_CATEGORY_CHOICES]),
@@ -230,7 +230,7 @@ class Command(BaseCommand):
         for _ in range(100):
             card_switch_info.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 bank_code=faker.lexify(text='?????'),
                 system_name=faker.company(),
                 card_flag=random.choice([choice[0] for choice in CARD_FLAG_CHOICES]),
@@ -248,7 +248,7 @@ class Command(BaseCommand):
         # Populate p2p_switch_info
         for _ in range(100):
             p2p_switch_info.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 bank_id=faker.lexify(text='?????')[:5],
                 transcation_channel=faker.word()[:10],
                 no_of_registered_customer=faker.random_int(min=1, max=10000),
@@ -265,7 +265,7 @@ class Command(BaseCommand):
         for _ in range(100):
             psp_products_info.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 product_ownership_flag=random.choice([choice[0] for choice in PRODUCT_CATEGORY_CHOICES]),
                 product_ownership_category=random.choice([choice[0] for choice in PRODUCT_OWNERSHIP_CATEGORY_CHOICES]),
                 product_partner_name=faker.company()[:25],
@@ -284,7 +284,7 @@ class Command(BaseCommand):
         for _ in range(100):
             trustaccount_data.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 bank_id=random.choice([choice[0] for choice in BANK_ID_CHOICES]),
                 bank_account_number=faker.random_int(min=1000, max=999999),
                 trust_acc_dr_type_code=random.choice([choice[0] for choice in DEBIT_TYPE_CODE_CHOICES]),
@@ -303,7 +303,7 @@ class Command(BaseCommand):
         for _ in range(100):
             incidents_data.objects.create(
                 psp_id="0800009",
-                report_date="03-Dec-2024",
+                report_date="20-Feb-2025",
                 sub_county_code=random.choice([choice[0] for choice in SUB_COUNTY_CHOICES]),
                 sub_fraud_code=random.choice([choice[0] for choice in SUB_FRAUD_FRAUD_CHOICES]),
                 fraud_category_flag=random.choice([choice[0] for choice in FRAUD_CATEGORY_FLAG_CHOICES]),
@@ -322,7 +322,7 @@ class Command(BaseCommand):
         # Populate system_activity_info
         for _ in range(100):
             system_activity_info.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 hour_of_the_day=random.choice([choice[0] for choice in TIME_CHOICES]),
                 no_of_transactions_per_sec=faker.random_int(min=1, max=1000),
@@ -333,7 +333,7 @@ class Command(BaseCommand):
         # Populate psp_customer_complaints
         for _ in range(100):
             psp_customer_complaints.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 complaint_code=random.choice([choice[0] for choice in COMPLAINTS_CODE_CHOICES]),
                 complainant_gender=random.choice([choice[0] for choice in GENDER_CHOICES]),
@@ -344,7 +344,7 @@ class Command(BaseCommand):
                 complainant_sub_county_location=random.choice([choice[0] for choice in SUB_COUNTY_CHOICES]),
                 complainant_education_level=random.choice([choice[0] for choice in EDUCATION_CHOICES]),
                 other_complainant_details=faker.sentence(),
-                agent_id=faker.lexify(text='????????'),
+                agent_id=faker.lexify(text='?'),
                 date_of_occurence=faker.date_between(start_date='-1y', end_date='today').strftime('%d-%b-%Y'),
                 date_reported_to_the_institution=faker.date_between(start_date='-1y', end_date='today').strftime('%d-%b-%Y'),
                 date_resolved=faker.date_between(start_date='-1y', end_date='today').strftime('%d-%b-%Y'),
@@ -358,7 +358,7 @@ class Command(BaseCommand):
         for _ in range(100):
             sch_sy_stabil_srvce_int.objects.create(
                 psp_code=random.choice([choice[0] for choice in PSP_ID_OTHER_CHOICES]),
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 sub_county_code=random.choice([choice[0] for choice in SUB_COUNTY_CHOICES]),
                 system_owner_flag=random.choice([choice[0] for choice in SYSTEM_CATEGORY_OWNER_FLAG_CHOICES]),
                 third_party_owned_category=random.choice([choice[0] for choice in THIRD_PARTY_OWNED_CATEGORY_CHOICES]),
@@ -377,7 +377,7 @@ class Command(BaseCommand):
         # Populate psp_cybersecurity_incident_record
         for _ in range(100):
             psp_cybersecurity_incident_record.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 incident_number=faker.lexify(text='INC??????'),
                 location_of_attacker=random.choice([choice[0] for choice in COUNTRY_CODE_CHOICES]),
@@ -396,7 +396,7 @@ class Command(BaseCommand):
         # Populate sched_of_dir
         for _ in range(100):
             sched_of_dir.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 director_names=faker.name(),
                 director_gender=random.choice([choice[0] for choice in GENDER_CHOICES]),
@@ -419,7 +419,7 @@ class Command(BaseCommand):
         # Populate senior_mngt_schedule
         for _ in range(100):
             senior_mngt_schedule.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 officer_names=faker.name(),
                 gender=random.choice([choice[0] for choice in GENDER_CHOICES]),
@@ -439,7 +439,7 @@ class Command(BaseCommand):
         # Populate sched_of_share_hldrs
         for _ in range(100):
             sched_of_share_hldrs.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 shareholder_name=faker.name(),
                 shareholder_gender=random.choice([choice[0] for choice in GENDER_CHOICES]),
@@ -462,7 +462,7 @@ class Command(BaseCommand):
         # Populate sched_of_trustees
         for _ in range(100):
             sched_of_trustees.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 trust_comp_name=faker.company(),
                 directors_trust_comp=faker.name(),
@@ -488,7 +488,7 @@ class Command(BaseCommand):
             failed_rejected_trx_info.objects.create(
                 psp_id="0800009",
                 bank_id=random.choice([choice[0] for choice in BANK_ID_CHOICES]),
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 customer_account_number=faker.lexify(text='????????'),
                 channel_of_settlement=random.choice([choice[0] for choice in CHANNEL_SETTLEMENT_CHOICES]),
                 merchant_id=faker.lexify(text='????????'),
@@ -502,7 +502,7 @@ class Command(BaseCommand):
         # Populate PaymentGatewayTransactionsTarrifs
         for _ in range(100):
             payment_gateway_tariffs.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 channel_used=faker.word()[:10],
                 channel_partner_name=faker.company()[:10],
@@ -515,7 +515,7 @@ class Command(BaseCommand):
         # Populate PaymentGatewayTransactionsDetails
         for _ in range(100):
             payment_gateway_transactions_details.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 card_brand_type=random.choice([choice[0] for choice in CARD_BRAND_TYPE_CHOICES]),
                 card_type=random.choice([choice[0] for choice in CARD_TYPE_CHOICES]),
@@ -532,7 +532,7 @@ class Command(BaseCommand):
         # Populate PaymentGatewayBillingTemplate
         for _ in range(100):
             pay_gtway_bill_temp.objects.create(
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 psp_id="0800009",
                 bill_classification_code=random.choice([choice[0] for choice in BILL_CLASSIFICATION_CODE]),
                 number_of_transactions=faker.random_int(min=1, max=10000),
@@ -543,7 +543,7 @@ class Command(BaseCommand):
         # Populate paymentGatewayCardBrands
         # for _ in range(100):
         #     pymt_gw_card_brands.objects.create(
-        #         reporting_date="03-Dec-2024",
+        #         reporting_date="20-Feb-2025",
         #         psp_id="0800009",
         #         bank_id=random.choice([choice[0] for choice in BANK_ID_CHOICES]),
         #         card_flag=random.choice([choice[0] for choice in CARD_FLAG_CHOICES]),
@@ -556,7 +556,7 @@ class Command(BaseCommand):
         for _ in range(100):
             merchant_transaction_info.objects.create(
                 psp_id="0800009",
-                reporting_date="03-Dec-2024",
+                reporting_date="20-Feb-2025",
                 merchant_id=faker.lexify(text='?????'),  # Random 5-character string
                 merchant_type_code=random.choice([choice[0] for choice in MERCHANT_TYPE_CHOICES]),
                 merchant_name=faker.company(),
